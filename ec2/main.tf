@@ -7,7 +7,7 @@ module "ec2_instance" {
   ami                    = data.aws_ami.devops-practice.id
   #key_name               = "user1"
   monitoring             = true
-  vpc_security_group_ids = data.aws_ssm_parameter.sg_id.value
+  vpc_security_group_ids = [data.aws_ssm_parameter.sg_id.value]
   subnet_id              = local.public_subet_id
 
   tags = {
