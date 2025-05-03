@@ -2,7 +2,7 @@ data "aws_ami" "devops-practice" {
   most_recent = true
 
   filter {
-    name   = "Root device type"
+    name   = "root-device-type"
     values = ["ebs"]
   }
 
