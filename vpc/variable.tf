@@ -1,4 +1,4 @@
 variable "tags_environment" {
-  type    = "string"
+  type    = string
   default = "dev"
 }
