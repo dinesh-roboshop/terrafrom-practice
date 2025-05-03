@@ -8,7 +8,7 @@ module "ec2_instance" {
   #key_name               = "user1"
   monitoring             = true
   vpc_security_group_ids = data.aws_ssm_parameter.sg_id.value
-  subnet_id              = locals.public_subet_id
+  subnet_id              = local.public_subet_id
 
   tags = {
     Terraform   = "true"
