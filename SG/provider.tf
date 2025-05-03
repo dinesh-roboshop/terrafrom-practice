@@ -15,7 +15,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "dineshdevops.shop"
-    key    = "vpc-test"
+    key    = "sg-test"
     region = "us-east-1"
   }
 }
