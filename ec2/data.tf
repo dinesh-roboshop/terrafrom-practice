@@ -19,3 +19,11 @@ data "aws_ami" "devops-practice" {
 
   owners = ["973714476881"] # Canonical
 }
+
+data "aws_ssm_parameter" "sg_id" {
+  name = "/${var.project}/${var.environment}/sg_allow_all"
+}
+
+data "aws_ssm_parameter" "public_subnet_id" {
+  name = "/${var.project}/${var.environment}/public_subnets_id"
+}
