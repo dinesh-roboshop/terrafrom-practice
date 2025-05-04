@@ -4,4 +4,4 @@ yum install ansible -y
 cd /tmp
 git clone https://github.com/dinesh-roboshop/ansible-roles.git
 cd ansible-roles
-ansible-playbook -e COMPONENT=web main.yaml
+ansible-playbook -i inventory.ini -e COMPONENT=web main.yaml
