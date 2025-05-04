@@ -10,6 +10,7 @@ module "ec2_instance" {
   vpc_security_group_ids = [data.aws_ssm_parameter.sg_id.value]
   subnet_id              = local.public_subet_id
   associate_public_ip_address = true
+  user_data = file("ec2-provision.sh")
  
 tags = var.common_tags
 
