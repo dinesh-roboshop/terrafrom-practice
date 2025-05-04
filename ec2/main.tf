@@ -178,6 +178,24 @@ tags = var.common_tags
 
 }
 
+module "web" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+
+  name = "web"
+
+  instance_type          = "t2.micro"
+  ami                    = data.aws_ami.devops-practice.id
+  #key_name               = "user1"
+  monitoring             = true
+  vpc_security_group_ids = [data.aws_ssm_parameter.sg_id.value]
+  subnet_id              = local.public_subet_id
+  associate_public_ip_address = true
+  #user_data               = file("ec2-provision.sh")
+
+tags = var.common_tags
+
+}
+
 module "ansible" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
@@ -196,23 +214,7 @@ tags = var.common_tags
 
 }
 
-module "web" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "web"
-
-  instance_type          = "t2.micro"
-  ami                    = data.aws_ami.devops-practice.id
-  #key_name               = "user1"
-  monitoring             = true
-  vpc_security_group_ids = [data.aws_ssm_parameter.sg_id.value]
-  subnet_id              = local.public_subet_id
-  associate_public_ip_address = true
-  #user_data               = file("ec2-provision.sh")
-
-tags = var.common_tags
-
-}
 
 
 module "records" {
