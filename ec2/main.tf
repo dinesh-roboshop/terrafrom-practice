@@ -9,10 +9,9 @@ module "ec2_instance" {
   monitoring             = true
   vpc_security_group_ids = [data.aws_ssm_parameter.sg_id.value]
   subnet_id              = local.public_subet_id
+  associate_public_ip_address = true
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
+    var.common_tags
 }
 

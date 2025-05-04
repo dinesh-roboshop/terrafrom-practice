@@ -12,3 +12,12 @@ variable "environment" {
   type    = string
   default = "dev"
 }
+ variable "common_tags" {
+    default {
+      environment = "dev"
+      project = "roboshop"
+      terraform = "yes"
+
+    }
+
+ }
