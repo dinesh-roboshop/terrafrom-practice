@@ -12,6 +12,12 @@ variable "environment" {
   type    = string
   default = "dev"
 }
+
+variable "zone_name" {
+  type    = string
+  default = "dineshdevops.shop"
+}
+
  variable "common_tags" {
     default = {
       environment = "dev"

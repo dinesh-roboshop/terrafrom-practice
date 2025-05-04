@@ -15,3 +15,18 @@ module "ec2_instance" {
 tags = var.common_tags
 
 }
+
+module "records" {
+  source  = "terraform-aws-modules/route53/aws//modules/records"
+  zone_name = var.zone_name
+
+  records = [
+    {
+      name    = "web"
+      type    = "A"
+      ttl     = 1
+      records = [
+        "${module.ec2_instance.public_ip}",
+      ]
+    },
+}
