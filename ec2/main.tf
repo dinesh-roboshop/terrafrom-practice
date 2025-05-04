@@ -29,4 +29,5 @@ module "records" {
         "${module.ec2_instance.public_ip}",
       ]
     },
+  ]
 }
