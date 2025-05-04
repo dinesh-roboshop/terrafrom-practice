@@ -11,8 +11,6 @@ module "ec2_instance" {
   subnet_id              = local.public_subet_id
   associate_public_ip_address = true
  
-tags = {
-    common_tags = var.common_tags
-  }
+tags = var.common_tags
 
 }
