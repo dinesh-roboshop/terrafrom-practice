@@ -1,4 +1,4 @@
-module "ec2_instance" {
+module "mongodb" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "mongodb"
@@ -16,7 +16,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "catalogue" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "catalogue"
@@ -34,7 +34,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "redis" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "redis"
@@ -52,7 +52,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "user" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "user"
@@ -70,7 +70,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "cart" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "cart"
@@ -88,7 +88,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "mysql" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "mysql"
@@ -106,7 +106,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "shipping" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "shipping"
@@ -124,7 +124,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "rabbitmq" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "rabbitmq"
@@ -142,7 +142,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "payment" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "payment"
@@ -160,7 +160,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "dispatch" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "dispatch"
@@ -178,7 +178,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "ansible" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "ansible"
@@ -196,7 +196,7 @@ tags = var.common_tags
 
 }
 
-module "ec2_instance" {
+module "web" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name = "web"
@@ -225,7 +225,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.mongodb.public_ip}",
       ]
     },
     {
@@ -233,7 +233,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.catalogue.public_ip}",
       ]
     },
     {
@@ -241,7 +241,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.redis.public_ip}",
       ]
     },
     {
@@ -249,7 +249,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.user.public_ip}",
       ]
     },
     {
@@ -265,7 +265,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.cart.public_ip}",
       ]
     },
     {
@@ -273,7 +273,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.mysql.public_ip}",
       ]
     },
     {
@@ -281,7 +281,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.shipping.public_ip}",
       ]
     },
     {
@@ -289,7 +289,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.rabbitmq.public_ip}",
       ]
     },
     {
@@ -297,7 +297,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.payment.public_ip}",
       ]
     },
     {
@@ -305,7 +305,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.dispatch.public_ip}",
       ]
     },
     {
@@ -313,7 +313,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.ansible.public_ip}",
       ]
     },
   ]
