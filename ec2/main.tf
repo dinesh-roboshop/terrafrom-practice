@@ -225,7 +225,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.mongodb.public_ip}",
+        "${module.web.public_ip}",
       ]
     },
     {
@@ -233,7 +233,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.catalogue.public_ip}",
+        "${module.mongodb.public_ip}",
       ]
     },
     {
@@ -241,7 +241,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.redis.public_ip}",
+        "${module.catalogue.public_ip}",
       ]
     },
     {
@@ -249,7 +249,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.user.public_ip}",
+        "${module.redis.public_ip}",
       ]
     },
     {
@@ -257,7 +257,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        "${module.ec2_instance.public_ip}",
+        "${module.user.public_ip}",
       ]
     },
     {
