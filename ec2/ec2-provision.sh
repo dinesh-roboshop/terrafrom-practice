@@ -1,6 +1,5 @@
 #!/bin/bash
 
-yum update -y
 yum install ansible -y
 cd /tmp
 git clone https://github.com/dinesh-roboshop/ansible-roles.git
