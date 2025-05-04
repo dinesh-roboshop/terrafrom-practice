@@ -13,7 +13,7 @@ variable "environment" {
   default = "dev"
 }
  variable "common_tags" {
-    default {
+    default = {
       environment = "dev"
       project = "roboshop"
       terraform = "yes"
