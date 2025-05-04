@@ -1,7 +1,6 @@
 #!/bin/bash
 
 yum install ansible -y
-cd /tmp
 git clone https://github.com/dinesh-roboshop/ansible-roles.git
 cd ansible-roles
 ansible-playbook -i inventory.ini main.yaml -e COMPONENT=mongodb -e ansible_password=DevOps321
